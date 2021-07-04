@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz!</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Math Quiz</h1>
+        <p>Answer questions before time runs out. If you answer incorrectly time will be subtracted.</p>
+    </header>
+
+    <div id="container">
+        <div id="start">Start Quiz!</div>
+
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            </div>
+            <div id="timer">
+                <div id="counter"></div>
+            </div>
+        </div>
+
+        
+        <div id="scoreContainer" style="display: none"></div>
+        <div id="verifycorrect" style="display: none"></div>
+        <div id = "highscorePage" style = "display:none">
+            <label for="initials">Initials</label>
+            <input  
+                type = "text"
+                name="initials"
+                id = "initials"
+                placeholder = "Type your initials here" 
+                />
+                <button id = highscoreSubmit>Submit</button>
+        </div>
+        <div id = "currentHighScore" style = "display:none"></div>
+    </div>
+
+
+    <script src="./assets/js/scripts.js"></script> 
+</body>
+</html>
