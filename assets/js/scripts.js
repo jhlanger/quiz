@@ -1,4 +1,4 @@
-
+// variables for DOM elmenets
 
 var startbtn = document.getElementById("start");
 var question = document.getElementById("question");
@@ -14,12 +14,12 @@ var highscorePage = document.getElementById("highscorePage");
 var highscoreSubmit = document.getElementById("highscoreSubmit");
 var currentHighScore = document.getElementById("currentHighScore");
 
+// Timer/ score and Highscore elements set to 0
 var score = 0;
 var highscore = 0;
 var timer;
 
-console.dir(currentHighScore);
-
+//Questions
 
 var questions = [
     {
@@ -59,9 +59,10 @@ var questions = [
 
 var lastQuestionIndex = questions.length -1;
 var runningQuestionIndex = 0
-
+// Timer start duration (30 seconds)
 var quizTime = 30;
 
+// displays the questions and the answer choices
 function renderQuestion () {
     var q = questions[runningQuestionIndex];
     question.innerHTML = "<p>" +q.question + "</p>";
@@ -70,6 +71,7 @@ function renderQuestion () {
     choiceC.innerHTML = q.choiceC;
 };
 
+//displays the timer in the top corner
 function counterRender () {
     counter.innerHTML = quizTime;
       quizTime --;
@@ -82,7 +84,7 @@ function counterRender () {
 }
 
 
-
+//answer verification
 function checkAnswer (answer) {
     if (answer === questions[runningQuestionIndex].correct ){
         score ++;
@@ -101,7 +103,7 @@ function checkAnswer (answer) {
     };
 
 };
-
+// answer is wrong/right and what happens after
 function answerIsCorrect () {
     verifycorrect.style.display = "flex";
     verifycorrect.innerHTML = "<p> Correct </p>"
@@ -111,6 +113,8 @@ function answerIsWrong () {
     verifycorrect.style.display = "flex";
     verifycorrect.innerHTML = "<p> Incorrect. 5 seconds subtracted </p>"
 }
+
+// function for starting the quiz
 function startQuiz() {
     startbtn.style.display = "none";
     highscorePage.style.display = "none";
@@ -126,6 +130,7 @@ function startQuiz() {
 
 };
 
+//bring up score page
 function scoreRender () {
     scoreContainer.style.display = "flex";
     verifycorrect.style.display = "none";
@@ -145,6 +150,7 @@ function scoreRender () {
     }
 };
 
+//commit highscore and initials to local storage
 highscoreSubmit.addEventListener('click', function(event){
     event.preventDefault()
     var highscoreInitials = userInitials.value;
